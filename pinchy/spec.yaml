@@ -11,4 +11,7 @@ agentContext: |
 sandbox:
   image: ghcr.io/skpr/sbx:pinchy-latest
 
-  aiFilename: AGENTS.md
+  aiFilename: AGENTS.m
+  
+  entrypoint:
+    run: ["herdr"]
