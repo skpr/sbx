@@ -1,0 +1,11 @@
+onboarding = false
+
+[theme]
+name = "darcula"
+
+[terminal]
+default_shell = "bash"
+
+[update]
+version_check = false
+manifest_check = false

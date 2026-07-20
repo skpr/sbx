@@ -1,0 +1,12 @@
+# Source the sandbox persistent environment file
+if [ -f /etc/sandbox-persistent.sh ]; then
+    . /etc/sandbox-persistent.sh
+fi
+
+# Export BASH_ENV for child non-interactive shells
+export BASH_ENV=/etc/sandbox-persistent.sh
+
+export PS1="\[\e[1;32m\][\D{%H:%M:%S}]\[\e[0m\] \[\e[1;34m\]\W\[\e[0m\] \$"
+
+export CLAUDE_CODE_NO_FLICKER=1
+
