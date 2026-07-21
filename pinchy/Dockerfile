@@ -2,13 +2,12 @@ FROM docker/sandbox-templates:claude-code
 
 USER root
 
-# lazydocker
-RUN curl -fsSL https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh \
-    | DIR=/usr/local/bin bash
+RUN apt update && \
+    apt install -y extrepo && \
+    extrepo enable mise && \
+    apt update
 
-# btop
-RUN apt-get update && apt-get install -y --no-install-recommends btop && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y vim curl htop mise
 
 USER agent
 
