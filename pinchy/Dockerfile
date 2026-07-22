@@ -7,7 +7,9 @@ RUN apt update && \
     extrepo enable mise && \
     apt update
 
-RUN apt update && apt install -y vim curl htop mise
+RUN apt update && apt install -y vim curl htop mise jq yq rsync
+
+COPY --from=ghcr.io/skpr/cli:v1.7.0 /usr/local/bin/ /usr/local/bin/
 
 USER agent
 
