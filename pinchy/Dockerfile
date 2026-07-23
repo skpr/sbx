@@ -9,7 +9,7 @@ RUN apt update && \
 
 RUN apt update && apt install -y vim curl htop mise jq yq rsync
 
-COPY --from=ghcr.io/skpr/cli:v1.7.0 /usr/local/bin/ /usr/local/bin/
+COPY --from=ghcr.io/skpr/cli:v1.8.1 /usr/local/bin/skpr-agent /usr/local/bin/skpr
 
 USER agent
 
