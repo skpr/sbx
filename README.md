@@ -28,7 +28,7 @@ https://docs.docker.com/ai/sandboxes/get-started
 While in a project directory run the following command:
 
 ```bash
-$ sbx run pinchy --kit "git+https://github.com/skpr/sbx.git"
+$ sbx run skpr --kit "git+https://github.com/skpr/sbx.git"
 ```
 
 **3. Start the Docker Sandbox TUI to review environments**
