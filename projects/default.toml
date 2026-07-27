@@ -1,0 +1,21 @@
+# herdr-plus project template for the skpr sandbox.
+#
+# Opened automatically on startup by ~/.bashrc (`herdr-plus open Default`), it
+# spins up the sandbox's standard workspace: a Claude tab and a bash Terminal.
+#
+# See https://github.com/cloudmanic/herdr-plus for the full format.
+
+name = "Default"
+description = "skpr sandbox workspace"
+
+# $SBX_PROJECT_DIR is exported by ~/.bashrc to the directory herdr opened in
+# (the mounted workspace), so Claude and the terminal start where the code is.
+# Replace it with a fixed path (e.g. "~/app") to always open somewhere specific.
+working_dir = "$SBX_PROJECT_DIR"
+
+[[tabs]]
+name = "Claude"
+command = "claude"
+
+[[tabs]]
+name = "Terminal"   # no command — just a bash shell

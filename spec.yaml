@@ -1,15 +1,15 @@
 schemaVersion: "1"
 kind: sandbox
-name: pinchy
-displayName: pinchy
-description: Custom sandbox environment for the Pinchy state of mind.
+name: skpr
+displayName: skpr
+description: Standardised agentic development environment
 
 agentContext: |
   You are running inside a herdr-managed sandbox. Multiple coding agents may
   run in parallel panes. Keep changes scoped to the mounted workspace.
 
 sandbox:
-  image: ghcr.io/skpr/sbx:pinchy-latest
+  image: ghcr.io/skpr/sbx:latest
 
   aiFilename: AGENTS.m
   
