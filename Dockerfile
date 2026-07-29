@@ -21,7 +21,9 @@ COPY --from=ghcr.io/skpr/cli:v1.8.1 /usr/local/bin/skpr-agent /usr/local/bin/skp
 
 USER agent
 
-RUN curl -fsSL https://opencode.ai/install | bash
+# Ensure we are running the latest Claude Code.
+RUN claude update
+
 RUN curl -fsSL https://herdr.dev/install.sh | sh
 RUN curl -fsSL https://raw.githubusercontent.com/cloudmanic/herdr-plus/main/install.sh | VERSION=v0.1.20 sh
 
