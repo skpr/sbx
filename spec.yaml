@@ -21,4 +21,4 @@ sandbox:
   aiFilename: AGENTS.md
   
   entrypoint:
-    run: ["herdr"]
+    run: [ "claude", "--dangerously-skip-permissions" ]

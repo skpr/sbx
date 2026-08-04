@@ -24,11 +24,4 @@ USER agent
 # Ensure we are running the latest Claude Code.
 RUN claude update
 
-RUN curl -fsSL https://herdr.dev/install.sh | sh
-RUN curl -fsSL https://raw.githubusercontent.com/cloudmanic/herdr-plus/main/install.sh | VERSION=v0.1.20 sh
-
-ADD --chown=agent:agent config.toml /home/agent/.config/herdr/config.toml
-ADD --chown=agent:agent bashrc /home/agent/.bashrc
-ADD --chown=agent:agent projects/default.toml /home/agent/.config/herdr-plus/projects/default.toml
-
-CMD ["herdr"]
+ENV CLAUDE_CODE_NO_FLICKER=1
