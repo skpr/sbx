@@ -19,6 +19,3 @@ sandbox:
   image: ghcr.io/skpr/sbx:latest
 
   aiFilename: AGENTS.md
-  
-  entrypoint:
-    run: [ "claude", "--dangerously-skip-permissions" ]

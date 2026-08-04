@@ -25,3 +25,5 @@ USER agent
 RUN claude update
 
 ENV CLAUDE_CODE_NO_FLICKER=1
+
+CMD [ "claude" ]
