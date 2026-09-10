@@ -27,3 +27,4 @@ USER agent
 RUN claude update
 
 ENTRYPOINT [ "t3" ]
+CMD [ "serve", "--host", "0.0.0.0", "--port", "3773" ]
