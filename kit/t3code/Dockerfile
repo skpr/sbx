@@ -26,5 +26,5 @@ USER agent
 # Ensure we are running the latest Claude Code.
 RUN claude update
 
-ENTRYPOINT [ "t3" ]
-CMD [ "serve", "--host", "0.0.0.0", "--port", "3773" ]
+ENTRYPOINT [ "bash", "-c" ]
+CMD [ "t3", "serve", "--host", "0.0.0.0", "--port", "3773" ]
