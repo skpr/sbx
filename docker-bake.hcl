@@ -1,5 +1,5 @@
 variable "REGISTRY" {
-  default = "ghcr.io/previousnext/sbx"
+  default = "ghcr.io/skpr/sbx"
 }
 
 variable "TAG" {
