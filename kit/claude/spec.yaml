@@ -1,0 +1,17 @@
+schemaVersion: "2"
+
+kind: sandbox
+
+name: claude-skpr
+extends: claude
+
+sandbox:
+  image: ghcr.io/skpr/sbx:claude-latest
+
+ports:
+  - name: web
+    container: 8080
+  - name: node
+    container: 3000
+  - name: mysql
+    container: 3306

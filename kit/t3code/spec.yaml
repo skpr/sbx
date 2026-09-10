@@ -1,0 +1,20 @@
+schemaVersion: "2"
+
+kind: sandbox
+
+name: t3code-skpr
+extends: claude
+
+sandbox:
+  image: ghcr.io/skpr/sbx:t3code-latest
+
+ports:
+  - name: t3code
+    container: 3773
+
+setup:
+  startup:
+    - command: ["t3", "serve", "--host", "0.0.0.0", "--port", "3773"]
+      user: "1000"
+      background: true
+      description: T3 Code server
