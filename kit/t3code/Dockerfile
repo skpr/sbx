@@ -25,3 +25,5 @@ USER agent
 
 # Ensure we are running the latest Claude Code.
 RUN claude update
+
+ENTRYPOINT [ "t3" ]
