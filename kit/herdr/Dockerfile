@@ -20,7 +20,11 @@ RUN apt update && apt install -y \
     yq
 
 RUN curl -fsSL https://herdr.dev/install.sh | sh
-RUN curl -fsSL https://cli.kiro.dev/install | bash
+
+RUN wget https://desktop-release.q.us-east-1.amazonaws.com/latest/kiro-cli.deb && \
+    dpkg -i kiro-cli.deb && \
+    apt-get install -f && \
+    rm -f kiro-cli.deb
 
 USER agent
 
