@@ -20,6 +20,7 @@ RUN apt update && apt install -y \
     yq
 
 RUN curl -fsSL https://herdr.dev/install.sh | sh
+RUN curl -fsSL https://cli.kiro.dev/install | bash
 
 USER agent
 
