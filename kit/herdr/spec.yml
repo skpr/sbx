@@ -1,0 +1,11 @@
+schemaVersion: "2"
+
+kind: sandbox
+
+name: herdr-skpr
+extends: claude
+
+sandbox:
+  image: ghcr.io/skpr/sbx:herdr-latest
+  entrypoint: [ "herdr" ]
+
