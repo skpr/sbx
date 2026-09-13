@@ -18,10 +18,18 @@ RUN apt update && apt install -y \
     rsync \
     vim \
     yq \
+    unzip \
     wget
 
 RUN curl -fsSL https://herdr.dev/install.sh | sh
-RUN curl -fsSL https://cli.kiro.dev/install | bash
+
+ARG TARGETARCH
+RUN case "$TARGETARCH" in \
+      amd64) ASSET=kirocli-x86_64-linux.zip ;; \
+      arm64) ASSET=kirocli-aarch64-linux-musl.zip ;; \
+    esac && \
+    curl -fsSL "https://desktop-release.q.us-east-1.amazonaws.com/latest/${ASSET}" -o /tmp/k.zip && \
+    unzip -q /tmp/k.zip -d /tmp && bash /tmp/kirocli/install.sh --no-confirm && rm -rf /tmp/k.zip /tmp/kirocli
 
 USER agent
 
