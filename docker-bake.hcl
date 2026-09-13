@@ -33,5 +33,5 @@ target "t3code" {
 target "herdr" {
   inherits = ["_common"]
   context  = "kit/herdr"
-  tags     = ["${REGISTRY}:herder-${TAG}"]
+  tags     = ["${REGISTRY}:herdr-${TAG}"]
 }
