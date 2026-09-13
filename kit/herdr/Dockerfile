@@ -24,6 +24,8 @@ RUN apt update && apt install -y \
 RUN curl -fsSL https://herdr.dev/install.sh | sh
 
 ARG TARGETARCH
+ARG KIRO_URL_BASE="https://desktop-release.q.us-east-1.amazonaws.com/latest"
+
 RUN case "$TARGETARCH" in \
       amd64) ASSET=kirocli-x86_64-linux.zip ;; \
       arm64) ASSET=kirocli-aarch64-linux-musl.zip ;; \
