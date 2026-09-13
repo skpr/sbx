@@ -27,9 +27,14 @@ ARG TARGETARCH
 RUN case "$TARGETARCH" in \
       amd64) ASSET=kirocli-x86_64-linux.zip ;; \
       arm64) ASSET=kirocli-aarch64-linux-musl.zip ;; \
+      *) echo "unsupported arch: $TARGETARCH" >&2; exit 1 ;; \
     esac && \
-    curl -fsSL "https://desktop-release.q.us-east-1.amazonaws.com/latest/${ASSET}" -o /tmp/k.zip && \
-    unzip -q /tmp/k.zip -d /tmp && bash /tmp/kirocli/install.sh --no-confirm && rm -rf /tmp/k.zip /tmp/kirocli
+    curl -fsSL "${KIRO_URL_BASE}/${ASSET}" -o /tmp/k.zip && \
+    unzip -q /tmp/k.zip -d /tmp && \
+    find /tmp/kirocli -maxdepth 2 -type f -perm -u+x ! -name '*.sh' \
+      -exec install -m 0755 {} /usr/local/bin/ \; && \
+    rm -rf /tmp/k.zip /tmp/kirocli && \
+    kiro-cli --version
 
 USER agent
 
