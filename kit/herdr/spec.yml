@@ -8,4 +8,4 @@ extends: claude
 sandbox:
   image: ghcr.io/skpr/sbx:herdr-latest
   entrypoint: [ "herdr" ]
-
+  command: [""]
