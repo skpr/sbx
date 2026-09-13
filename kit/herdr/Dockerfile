@@ -19,5 +19,7 @@ RUN curl -fsSL https://herdr.dev/install.sh | sh && herdr --version
 
 ADD --chown=agent:agent config.toml /home/agent/.config/herdr/config.toml
 
+ENV CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1
+
 # Ensure we are running the latest Claude Code.
 RUN claude update
