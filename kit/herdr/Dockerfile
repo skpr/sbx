@@ -15,6 +15,15 @@ USER agent
 ENV HOME=/home/agent
 ENV PATH="/home/agent/.local/bin:${PATH}"
 
+RUN <<EOF
+set -ex
+curl -fsSL https://cli.kiro.dev/install | bash
+
+# Runs kiro-cli setup to have it create ~/.local/share/kiro-cli/data.sqlite3,
+# which will potentially be managed in a Docker volume based on sandbox settings.
+kiro-cli setup --no-confirm
+EOF
+
 RUN curl -fsSL https://herdr.dev/install.sh | sh && herdr --version
 
 ADD --chown=agent:agent config.toml /home/agent/.config/herdr/config.toml
