@@ -11,7 +11,7 @@ variable "PLATFORMS" {
 }
 
 group "default" {
-  targets = ["claude", "herdr"]
+  targets = ["claude", "herdr", "t3code"]
 }
 
 target "_common" {
