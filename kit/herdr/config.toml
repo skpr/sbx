@@ -2,3 +2,8 @@ onboarding = false
 
 [terminal]
 default_shell = "/bin/bash"
+
+# Relative to the herdr server's working directory (the sandbox workspace mount),
+# so worktrees live on the host and survive sandbox rebuilds.
+[worktrees]
+directory = ".worktrees"
