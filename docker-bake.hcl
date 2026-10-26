@@ -11,7 +11,7 @@ variable "PLATFORMS" {
 }
 
 group "default" {
-  targets = ["claude", "herdr", "t3code"]
+  targets = ["claude", "herdr", "paddock", "t3code"]
 }
 
 target "_common" {
@@ -28,6 +28,12 @@ target "t3code" {
   inherits = ["_common"]
   context  = "kit/t3code"
   tags     = ["${REGISTRY}:t3code-${TAG}"]
+}
+
+target "paddock" {
+  inherits = ["_common"]
+  context  = "kit/paddock"
+  tags     = ["${REGISTRY}:paddock-${TAG}"]
 }
 
 target "herdr" {
