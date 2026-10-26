@@ -7,10 +7,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     extrepo enable mise && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      build-essential curl htop jq make mise rsync unzip vim yq wget && \
+      build-essential curl htop jq make mise rsync supervisor unzip vim yq wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g @edspencer/paddock@latest
+RUN npm install -g @edspencer/paddock@latest local-review@latest
 
 USER agent
 
@@ -23,6 +23,10 @@ ENV PADDOCK_DATA_DIR=/home/agent/.paddock
 # Paddock refuses a non-loopback bind without auth. This kit is for local dev and
 # the sandbox is only reachable through ports published with "sbx ports".
 ENV PADDOCK_DANGEROUSLY_ALLOW_OPEN=1
+
+ENV LOCAL_REVIEW_HOME=/home/agent/.local-review
+
+ADD --chown=agent:agent supervisord.conf /home/agent/.config/supervisor/supervisord.conf
 
 # Ensure we are running the latest Claude Code.
 RUN claude update

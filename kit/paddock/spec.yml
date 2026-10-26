@@ -7,8 +7,10 @@ extends: claude
 
 sandbox:
   image: ghcr.io/skpr/sbx:paddock-latest
-  entrypoint: [ "paddock", "--host", "0.0.0.0", "--port", "7233" ]
+  entrypoint: [ "supervisord", "-c", "/home/agent/.config/supervisor/supervisord.conf" ]
 
 ports:
   - name: paddock
     container: 7233
+  - name: local-review
+    container: 5622
