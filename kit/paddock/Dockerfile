@@ -7,7 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     extrepo enable mise && \
     DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      build-essential curl htop jq make mise rsync supervisor unzip vim yq wget && \
+      build-essential curl htop jq make mise rsync socat supervisor unzip vim yq wget && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g @edspencer/paddock@latest local-review@latest

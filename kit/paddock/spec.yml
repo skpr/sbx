@@ -13,4 +13,4 @@ ports:
   - name: paddock
     container: 7233
   - name: local-review
-    container: 5622
+    container: 5623
